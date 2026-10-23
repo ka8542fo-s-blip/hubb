@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <title>Neon</title>
 <style>
-@font-face{font-family:"Sacramento";src:url("../fonts/sacramento-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Comfortaa";src:url("../fonts/comfortaa-latin-400-normal.woff2") format("woff2");}
 html,body{margin:0;background:#000}
 #stage{position:relative;overflow:hidden}
 canvas{position:absolute;inset:0}
 #glow{position:absolute;inset:0;pointer-events:none}
 #sign{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:var(--gap,40px)}
-.word{font-family:"Sacramento",cursive;color:#fff3f0;white-space:nowrap;line-height:1;
-  -webkit-text-stroke:var(--stroke,1.4px) #ffd9d2;
+.word{font-family:"Comfortaa",sans-serif;letter-spacing:.01em;color:#fff3f0;white-space:nowrap;line-height:1;
+  -webkit-text-stroke:var(--stroke,0.6px) #ffd9d2;
   text-shadow:
     0 0 2px #fff,
     0 0 6px #ffb3a8,
@@ -130,11 +130,13 @@ if (TEXT) {
   const el = document.createElement('div');
   el.className = 'word';
   el.style.fontSize = SIZE + 'px';
-  el.style.transform = 'translateY(' + (+q.get('ty') || 0) + 'px) rotate(' + (+q.get('rot') || -4) + 'deg)';
+  el.style.transform = 'translateY(' + (+q.get('ty') || 0) + 'px) rotate(' + (+q.get('rot') || 0) + 'deg)';
   el.textContent = TEXT;
   sign.appendChild(el);
 }
-document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+document.fonts.load(SIZE + 'px "Comfortaa"', TEXT || 'a')
+  .then(() => document.fonts.ready)
+  .then(() => { document.body.dataset.ready = '1'; });
 </script>
 </body>
 </html>

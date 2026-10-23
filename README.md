@@ -21,6 +21,7 @@ https://ka8542fo-s-blip.github.io/hubb/ och Notion hämtar dem därifrån.
 | `fokus.html` | Fokustimer (25, 5 och 15 minuter) som räknar dagens pass |
 | `tid.html` | Hur stor del av dagen, veckan, månaden, året och terminen som har gått |
 | `tenta.html` | Nedräkning till nästa tenta |
+| `knapp.html` | Stor knapp som öppnar en webbplats i webbläsaren, i dag pluggsidan på Studier |
 
 `tenta.html` läser sina uppgifter från adressen, till exempel:
 
@@ -33,6 +34,8 @@ widgets/tenta.html?namn=Databaser%20–%20salstenta&datum=2026-11-17&info=5%20h&
 - `info`: extra text efter datumet (valfri)
 - `fran`: dagen förloppsstapeln börjar räkna från
 - `rubrik`: ersätter rubriken "Nästa tenta" (valfri)
+
+`knapp.html` öppnar https://ka8542fo-s-blip.github.io/sysb23-plugg/ om inget annat anges. Andra knappar får sin text och adress från adressraden: `text` (rubriken), `sub` (raden under) och `url` (måste börja med https://).
 
 Terminen i `tid.html` är HT26, 31 augusti 2026 till 17 januari 2027. Lägg in nästa termin i listan `TERMS` innan HT26 tar slut.
 

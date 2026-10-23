@@ -10,7 +10,8 @@ https://ka8542fo-s-blip.github.io/hubb/ och Notion hämtar dem därifrån.
 | `omslag/` | Sidomslag (1500 × 600) till Hubb och de sex områdena |
 | `kort/` | Bilder till galleriet Områden (600 × 380) |
 | `widgets/` | HTML-widgets som bäddas in i Notion med embed-block |
-| `fonts/` | Inter och Bebas Neue, båda under SIL Open Font License 1.1 |
+| `fonts/` | Inter, Bebas Neue och Sacramento, alla under SIL Open Font License 1.1 |
+| `verktyg/` | Skriptet som ritar omslag, kort och fokustimerns bakgrund |
 
 ## Widgets
 
@@ -34,3 +35,15 @@ widgets/tenta.html?namn=Databaser%20–%20salstenta&datum=2026-11-17&info=5%20h&
 - `rubrik`: ersätter rubriken "Nästa tenta" (valfri)
 
 Terminen i `tid.html` är HT26, 31 augusti 2026 till 17 januari 2027. Lägg in nästa termin i listan `TERMS` innan HT26 tar slut.
+
+## Nya omslag och kort
+
+`verktyg/neon.html` ritar tegelväggen, neontexten och ikonen. `verktyg/render.js` sparar bilderna som JPEG i `omslag/`, `kort/` och `widgets/`. Ändra eller lägg till en rad i `jobs` i render.js och kör från repots rot:
+
+```
+npm install --no-save playwright sharp
+npx playwright install chromium
+node verktyg/render.js omslag/hem
+```
+
+Utan argument ritas alla bilder om. Ikonerna som finns är compass, shield, cap, building, rocket, chart och home.
